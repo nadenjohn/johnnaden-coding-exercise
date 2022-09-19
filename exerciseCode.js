@@ -4,6 +4,8 @@ const readline = require("readline");
 const csv = "./data2.csv";
 
 async function dataConverter(input){
+    //Path of functions
+    //await receipt of data before continuing
     const data = await processData(input);
     const cleanedData = cleanData(data);
     const objArray = assignKeys(cleanedData);
@@ -14,6 +16,7 @@ async function dataConverter(input){
 function processData(input){
     const stream = fs.createReadStream(input);
     const reader = readline.createInterface({ input: stream });
+    //Wrap in promise to make sure data is recieved before continuing
     return new Promise(function(resolve){
         let data = [];
 
@@ -46,7 +49,7 @@ function processData(input){
         return newArray;
     }
     function assignKeys(array){
-        //Assigning keys to data for easier sorting
+        //Assign keys to data for easier sorting
         let keys = [
             "firstName", 
             "lastName", 
@@ -62,7 +65,7 @@ function processData(input){
               }
             arrayOfObjects.push(obj);
         }
-        //Using localeCompare to arrange data in alphabetical order using lastName then firstName
+        //Using .sort to arrange data in alphabetical order using lastName then firstName
         const sortedArray = arrayOfObjects.sort((a, b) => {
               const result = a.lastName.localeCompare(b.lastName);
               return result !== 0 ? result : a.firstName.localeCompare(b.firstName);
@@ -71,7 +74,7 @@ function processData(input){
     };
 
     function sortHouseholds(occupants){
-        //Creating an array of households that contains lastname, street address and number of occupants
+        //Creating an array of households that contains address and number of occupants
         let households = [];
         occupants.forEach(item => {
             let resObj = households.find(resObj => 
