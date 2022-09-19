@@ -60,3 +60,18 @@ Create a record of households followed by the adult occupants(age >= 18).
         -Adult occupants(s)<br>
     Household<br>
         -Adult occupants(s)<p>
+
+----------------------------------------------------------------
+## Instructions
+**Code**
+- Pull or clone code from github
+- Install node.js with npm <code>npm install node</code>
+- Run code <code> node exerciseCode.js</code> 
+
+**Testing**
+- Install Jest <code>npm install --save-dev jest</code>
+- Add the following to package.json:<br>
+    <code>  "scripts": {
+    "test": "jest"
+  }</code>
+- Run <code>npm test</code>
