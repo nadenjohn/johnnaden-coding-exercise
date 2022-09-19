@@ -16,7 +16,7 @@ async function dataConverter(input){
 function processData(input){
     const stream = fs.createReadStream(input);
     const reader = readline.createInterface({ input: stream });
-    //Wrap in promise to make sure data is recieved before continuing
+    //Wrap in promise so data is recieved before continuing
     return new Promise(function(resolve){
         let data = [];
 
